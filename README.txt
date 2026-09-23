@@ -1,5 +1,5 @@
-約會邀請函 GitHub Pages 部署檔
+Date invitation — GitHub Pages deployment
 
-將本資料夾內的 index.html 和 assets 資料夾直接上傳至 GitHub 儲存庫根目錄。assets 保持資料夾，不要單獨壓縮。
-設定 GitHub Pages 來源為 main 分支、根目錄。
-本版本含可點擊的小丸子角色圖、上下頁修改答案、透明選框及 Google 表單送出。
+Upload index.html and the entire assets folder directly to the root of your GitHub repository. Do not upload this ZIP as-is or compress assets separately. Set GitHub Pages to deploy from the main branch, root directory.
+
+This version automatically advances after each valid answer, keeps Back on the question pages, and opens the thank-you page after the coffee choice.
