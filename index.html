@@ -1,47 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>相片修改規格說明</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; background-color: #f4f7f6; }
-        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        h2 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .spec-box { background: #f9f9f9; border: 1px solid #ddd; padding: 20px; border-radius: 8px; position: relative; font-size: 1.1em; }
-        button { background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background 0.3s; margin-top: 20px; }
-        button:hover { background-color: #0056b3; }
-        .copy-status { margin-left: 10px; color: green; display: none; }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#fff4d9">
+  <meta name="description" content="淳淳的專屬約會邀請與行程選擇。">
+  <title>淳淳的約會邀請</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23ffdf58'/%3E%3Cpath d='M18 25c0-8 11-10 14-2 3-8 14-6 14 2 0 10-14 19-14 19S18 35 18 25Z' fill='%23ef5350' stroke='%232f2a26' stroke-width='3'/%3E%3C/svg%3E">
+  <style>
+    :root{color-scheme:light;--ink:#2f2a26;--paper:#fffaf0;--yellow:#ffdf58;--red:#ef5350;--blue:#73c9e9;--green:#83c56d;--pink:#ff96a7;--line:3px solid var(--ink);--shadow:6px 7px 0 var(--ink)}
+    *{box-sizing:border-box}html,body{width:100%;min-width:320px;min-height:100%;overscroll-behavior:none}body{margin:0;color:var(--ink);background:#fff4d9;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;overflow:hidden;-webkit-text-size-adjust:100%}button{font:inherit;touch-action:manipulation;-webkit-tap-highlight-color:transparent}.app{min-height:100svh;min-height:100dvh;position:relative;isolation:isolate}.sun,.hill{display:none}
+    .progress{position:fixed;top:max(1rem,env(safe-area-inset-top));left:50%;z-index:10;transform:translateX(-50%);display:flex;gap:.5rem;padding:.55rem .7rem;background:#fffaf0e6;border:2px solid var(--ink);border-radius:999px}.progress span{width:.75rem;height:.75rem;border:2px solid var(--ink);border-radius:50%;background:#fff}.progress span.active{background:var(--red)}
+    .screen{position:absolute;inset:0;height:100svh;height:100dvh;padding:clamp(4.4rem,10vh,6rem) max(1.2rem,env(safe-area-inset-right)) max(2rem,env(safe-area-inset-bottom)) max(1.2rem,env(safe-area-inset-left));display:grid;place-items:center;opacity:0;visibility:hidden;transform:translateX(2.2rem);transition:.35s ease;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;background-position:center;background-size:cover;background-repeat:no-repeat}.screen[data-step="0"]{background-image:linear-gradient(#fff8e033,#fff8e033),url('assets/scene-welcome-v2.png')}.screen[data-step="1"]{background-image:linear-gradient(#fff8e026,#fff8e026),url('assets/scene-date-v2.png')}.screen[data-step="2"]{background-image:linear-gradient(#fff8e026,#fff8e026),url('assets/scene-pickup-v2.png')}.screen[data-step="3"]{background-image:linear-gradient(#fff8e01f,#fff8e01f),url('assets/scene-drink-v2.png')}.screen[data-step="4"]{background-image:linear-gradient(#fff8e026,#fff8e026),url('assets/scene-thanks-v2.png')}.screen.active{opacity:1;visibility:visible;transform:none}.panel{width:min(100%,45rem);padding:clamp(1.25rem,3vw,2.25rem);text-align:center;background:#fffaf0e8;border:var(--line);border-radius:1.6rem;box-shadow:8px 9px 0 #2f2a26;backdrop-filter:blur(3px)}.screen[data-step="0"] .panel{align-self:start;width:min(100%,36rem)}.sticker{display:inline-block;margin-bottom:1rem;padding:.45rem .9rem;border:2px solid var(--ink);border-radius:999px;background:var(--blue);font-weight:800;transform:rotate(-2deg)}h1,h2{margin:0;font-weight:900;line-height:1.22;letter-spacing:.02em;text-shadow:0 2px 0 #fff}h1{font-size:clamp(2.2rem,7vw,4.5rem)}h2{font-size:clamp(2rem,6vw,3.8rem)}.sub{margin:1rem auto 1.8rem;max-width:31rem;font-size:clamp(1rem,2.5vw,1.18rem);line-height:1.8}.name-question{width:min(100%,24rem);margin:.8rem auto 0;text-align:left}.name-question label{display:block;margin:0 0 .45rem;font-size:1.05rem;font-weight:900}.name-question input{width:100%;min-height:3.4rem;padding:.75rem 1rem;border:var(--line);border-radius:.85rem;background:#fff;color:var(--ink);font:inherit;font-size:1rem;box-shadow:4px 5px 0 var(--ink);outline:none}.name-question input:focus{background:#fff8cd;box-shadow:4px 5px 0 var(--red)}.required{color:var(--red)}.name-hint{margin:.55rem 0 0;font-size:.82rem;font-weight:700;color:#6b5142}
+    .character-button{display:block;position:fixed;right:0;bottom:0;width:min(46vw,27rem);height:min(46vh,32rem);margin:0;padding:0;border:0;background:transparent;cursor:pointer;z-index:5}.character-button img{display:none}.character-button:after{content:"點小丸子繼續！";position:absolute;right:18%;top:8%;padding:.65rem .85rem;border:2px solid var(--ink);border-radius:50%;background:#fff;font-weight:800;box-shadow:3px 4px 0 var(--ink);transform:rotate(5deg);animation:bob 2.2s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-8px) rotate(2deg)}}
+    .choices{width:min(100%,34rem);margin:2rem auto 0;display:grid;gap:1rem}.choice{position:relative;min-height:4rem;padding:.9rem 1.2rem;border:var(--line);border-radius:1.1rem;background:var(--paper);color:var(--ink);box-shadow:var(--shadow);font-size:clamp(1rem,3vw,1.2rem);font-weight:800;cursor:pointer;transition:.16s ease}.choice:hover,.choice:focus-visible{transform:translate(-2px,-2px);background:var(--yellow)}.choice:active{transform:translate(4px,5px);box-shadow:2px 2px 0 var(--ink)}.choice.selected{background:var(--blue)}.runaway{transition:transform .14s ease;cursor:not-allowed;opacity:.78}.runaway:after{content:"這天抓不到我～";position:absolute;right:.8rem;top:.25rem;font-size:.72rem;color:var(--red);transform:rotate(3deg)}
+    .runaway-drink{cursor:not-allowed;transition:transform .13s ease;background:#fff}.runaway-drink:after{content:"抓不到～";position:absolute;right:.8rem;top:.25rem;font-size:.72rem;color:var(--red);transform:rotate(3deg)}.coffee-choice{background:#5b3928;color:#fff}.coffee-choice:hover,.coffee-choice:focus-visible{background:#2f2019;color:#fff}.thanks-card{background:#fffaf0ed}.thanks-icon{display:grid;place-items:center;width:5.4rem;height:5.4rem;margin:0 auto 1.4rem;border:var(--line);border-radius:50%;background:var(--pink);font-size:2.7rem}.summary{margin:2rem auto 0;max-width:30rem;display:grid;gap:.7rem;text-align:left}.summary p{margin:0;padding:.8rem 1rem;border:2px dashed var(--ink);border-radius:.8rem;background:#fff8cd;line-height:1.5}.submit-state{margin-top:1.1rem;min-height:1.5rem;font-weight:800;color:#47783b}
+    @media(max-width:560px){.screen{align-items:start;padding-top:max(4.4rem,calc(env(safe-area-inset-top) + 3.8rem));padding-bottom:max(1.25rem,env(safe-area-inset-bottom));background-position:center}.panel{margin:auto 0;padding:1.2rem .9rem;border-radius:1.25rem;box-shadow:5px 6px 0 var(--ink)}.screen[data-step="0"] .panel{margin-top:.6rem}.character-button{width:55vw;height:43vh}.character-button:after{right:8%;top:0;font-size:.8rem}.choices{gap:.78rem;margin-top:1.25rem}.choice{min-height:3.55rem;padding:.72rem 1rem}h1{font-size:clamp(2rem,11vw,3.2rem)}h2{font-size:clamp(1.75rem,9vw,2.7rem)}.sub{margin:.75rem auto 1.1rem;line-height:1.6}.thanks-card{border-radius:1.35rem;padding:1.5rem 1rem;box-shadow:6px 7px 0 var(--ink)}}@media(max-height:700px) and (max-width:560px){.character-button{width:52vw;height:40vh}.sticker{margin-bottom:.55rem}.sub{margin:.55rem auto .7rem}.choices{margin-top:.8rem;gap:.6rem}.choice{min-height:3.25rem}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+  </style>
 </head>
 <body>
-
-<div class="card">
-    <h2>證件相片修改prompt (Photo Specifications)</h2>
-    <p>將以下文字複製貼到Gemini,記得附上欲生成證件的人物照片(盡量以滿版頭像為佳)：</p>
-    
-    <div class="spec-box" id="specText">
-        "Modify this headshot to meet the following specifications: Crop the photo to a portrait aspect ratio. Ensure the subject is facing the camera directly with both eyes open and clearly visible. The expression must be neutral with the mouth closed (no teeth showing). The head and top of the shoulders should be centered, with the face (top of head to chin) occupying 70-80% of the vertical height. The background must be solid white. Ensure even lighting across the face with no shadows, flash reflections, or red-eye. Maintain natural skin tones with appropriate brightness and contrast. The final output must be high-resolution, sharp, and clear with no blur or aliasing (minimum 300 DPI quality)."
-    </div>
-
-    <button onclick="copyText()">按我複製</button>
-    <span class="copy-status" id="status">成功複製到剪貼簿了耶！</span>
-</div>
-
-<script>
-    function copyText() {
-        const text = document.getElementById('specText').innerText;
-        navigator.clipboard.writeText(text).then(() => {
-            const status = document.getElementById('status');
-            status.style.display = 'inline';
-            setTimeout(() => { status.style.display = 'none'; }, 2000);
-        });
-    }
-</script>
-
+  <main class="app">
+    <div class="sun" aria-hidden="true"></div><div class="hill" aria-hidden="true"></div>
+    <nav class="progress" aria-label="作答進度"><span class="active"></span><span></span><span></span><span></span><span></span></nav>
+    <section class="screen active" data-step="0" aria-labelledby="welcomeTitle"><div class="panel"><span class="sticker">特別邀請</span><h1 id="welcomeTitle">謝謝淳淳<br>接受這次邀約！</h1><p class="sub">接下來有幾個很重要的小問題，請淳淳親自決定。</p><div class="name-question"><label for="visitorName">你是誰? <span class="required" aria-hidden="true">*</span></label><input id="visitorName" name="visitorName" type="text" maxlength="40" autocomplete="name" placeholder="請輸入名字" required aria-describedby="nameHint"><p class="name-hint" id="nameHint">填完名字後，點小丸子繼續</p></div><button class="character-button" type="button" data-next aria-label="填寫名字後，點擊敬禮的小丸子繼續"><img src="assets/maruko-bow.png" alt="小丸子開心地向淳淳敬禮"></button></div></section>
+    <section class="screen" data-step="1" aria-labelledby="dateTitle"><div class="panel"><span class="sticker">第一題</span><h2 id="dateTitle">選擇日期</h2><p class="sub">請選一個適合約會的日子。</p><div class="choices"><button class="choice runaway" id="runawayDate" type="button" aria-disabled="true" tabindex="-1">9／23</button><button class="choice" type="button" data-answer="date" data-value="9/25">9／25</button></div></div></section>
+    <section class="screen" data-step="2" aria-labelledby="pickupTitle"><div class="panel"><span class="sticker">第二題 · 專車接送</span><h2 id="pickupTitle">選擇上車時間</h2><p class="sub">專車會準時出現，請選擇舒服的時段。</p><div class="choices"><button class="choice" type="button" data-answer="pickup" data-value="8:00~9:00">8:00～9:00</button><button class="choice" type="button" data-answer="pickup" data-value="9:00~10:00">9:00～10:00</button><button class="choice" type="button" data-answer="pickup" data-value="10:00~11:00">10:00～11:00</button><button class="choice" type="button" data-answer="pickup" data-value="11:00~12:00">11:00～12:00</button><button class="choice" type="button" data-answer="pickup" data-value="12:00~13:00">12:00～13:00</button></div></div></section>
+    <section class="screen" data-step="3" aria-labelledby="drinkTitle"><div class="panel"><span class="sticker">第三題 · 隨車飲料</span><h2 id="drinkTitle">今天想喝什麼？</h2><p class="sub">請選擇隨車飲料——前五杯可能不太想被選到。</p><div class="choices" id="drinkChoices"><button class="choice runaway-drink" type="button" aria-disabled="true" tabindex="-1">春芽冷露</button><button class="choice runaway-drink" type="button" aria-disabled="true" tabindex="-1">胭脂紅茶</button><button class="choice runaway-drink" type="button" aria-disabled="true" tabindex="-1">沐嵐迎春</button><button class="choice runaway-drink" type="button" aria-disabled="true" tabindex="-1">精粹森藏茶</button><button class="choice runaway-drink" type="button" aria-disabled="true" tabindex="-1">紅檜烏龍</button><button class="choice coffee-choice" type="button" data-answer="drink" data-value="美式咖啡">美式咖啡</button></div></div></section>
+    <section class="screen" data-step="4" aria-labelledby="thanksTitle"><div class="panel thanks-card"><div class="thanks-icon" aria-hidden="true">♥</div><h2 id="thanksTitle">感謝質感淳淳的作答</h2><p class="sub">先預祝有個愉快的一天</p><div class="summary" aria-label="作答摘要"><p>填答人｜<strong id="summaryName">—</strong></p><p>日期｜<strong id="summaryDate">—</strong></p><p>上車時間｜<strong id="summaryPickup">—</strong></p><p>隨車飲料｜<strong id="summaryDrink">—</strong></p></div><p class="submit-state" id="submitState" role="status" aria-live="polite"></p></div></section>
+  </main>
+  <script>
+    const FORM_CONFIG={action:'https://docs.google.com/forms/d/e/1FAIpQLSfH2HjbBPe5nm6rdEwAZEY8jj7NFkyRb4scriFFoiYRLcEuyQ/formResponse',fields:{name:'entry.331264307',date:'entry.521466682',pickup:'entry.1771829199',drink:'entry.87948772'}};
+    const answers={name:'',date:'',pickup:'',drink:''},screens=[...document.querySelectorAll('.screen')],dots=[...document.querySelectorAll('.progress span')];let currentStep=0;
+    function goTo(step){screens[currentStep].classList.remove('active');screens[step].classList.add('active');dots.forEach((dot,i)=>dot.classList.toggle('active',i<=step));currentStep=step;screens[step].scrollTop=0;const heading=screens[step].querySelector('h1,h2');if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true})}}
+    const nameInput=document.querySelector('#visitorName');document.querySelector('[data-next]').addEventListener('click',()=>{const name=nameInput.value.trim();if(!name){nameInput.setCustomValidity('請先填寫名字');nameInput.reportValidity();nameInput.focus();return}nameInput.setCustomValidity('');answers.name=name;goTo(1)});nameInput.addEventListener('input',()=>nameInput.setCustomValidity(''));
+    document.querySelectorAll('[data-answer]').forEach(button=>button.addEventListener('click',()=>{const key=button.dataset.answer;answers[key]=button.dataset.value;button.classList.add('selected');setTimeout(()=>{if(key==='date')goTo(2);if(key==='pickup')goTo(3);if(key==='drink')finish()},key==='drink'?480:280)}));
+    const touchLike=matchMedia('(hover:none),(pointer:coarse)').matches,runaway=document.querySelector('#runawayDate');function dodgeDate(){const range=touchLike?90:180,x=Math.round((Math.random()-.5)*range),y=Math.round((Math.random()-.5)*(touchLike?38:60));runaway.style.transform=`translate(${x}px,${y}px) rotate(${x/18}deg)`}runaway.addEventListener('pointerenter',dodgeDate);runaway.addEventListener('pointerdown',e=>{e.preventDefault();dodgeDate()});document.querySelectorAll('.runaway-drink').forEach((button,index)=>{function dodgeDrink(){const range=touchLike?105:240,x=Math.round((Math.random()-.5)*range),y=Math.round((Math.random()-.5)*(touchLike?55:100));button.style.zIndex=String(5+index);button.style.transform=`translate(${x}px,${y}px) rotate(${x/24}deg)`}button.addEventListener('pointerenter',dodgeDrink);button.addEventListener('pointerdown',e=>{e.preventDefault();dodgeDrink()})});
+    async function finish(){document.querySelector('#summaryName').textContent=answers.name;document.querySelector('#summaryDate').textContent=answers.date;document.querySelector('#summaryPickup').textContent=answers.pickup;document.querySelector('#summaryDrink').textContent=answers.drink;goTo(4);await submitToGoogleForm()}
+    async function submitToGoogleForm(){const state=document.querySelector('#submitState'),configured=FORM_CONFIG.action&&Object.values(FORM_CONFIG.fields).every(Boolean);if(!configured){state.textContent='等待連接 Google 表單';return}const formData=new FormData;formData.append(FORM_CONFIG.fields.name,answers.name);formData.append(FORM_CONFIG.fields.date,answers.date);formData.append(FORM_CONFIG.fields.pickup,answers.pickup);formData.append(FORM_CONFIG.fields.drink,answers.drink==='美式咖啡'?'美式黑咖啡':answers.drink);state.textContent='正在儲存作答…';try{await fetch(FORM_CONFIG.action,{method:'POST',mode:'no-cors',body:formData});state.textContent='作答已成功儲存 ✓'}catch(error){state.textContent='作答暫時無法儲存，請截圖保留答案。'}}
+  </script>
 </body>
-
 </html>
-
-
-
